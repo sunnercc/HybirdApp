@@ -14,6 +14,11 @@
 		4097DB1F2A55E76800CFA4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4097DB1E2A55E76800CFA4C5 /* Assets.xcassets */; };
 		4097DB222A55E76800CFA4C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4097DB202A55E76800CFA4C5 /* LaunchScreen.storyboard */; };
 		4097DB252A55E76800CFA4C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4097DB242A55E76800CFA4C5 /* main.m */; };
+		4097DB2D2A55E84A00CFA4C5 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4097DB2C2A55E84900CFA4C5 /* UIWebViewController.m */; };
+		4097DB302A55E86C00CFA4C5 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4097DB2F2A55E86C00CFA4C5 /* WKWebViewController.m */; };
+		4097DB342A55F78E00CFA4C5 /* MessageBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 4097DB332A55F78E00CFA4C5 /* MessageBody.m */; };
+		4097DB372A55F88400CFA4C5 /* JSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4097DB362A55F88400CFA4C5 /* JSBridge.m */; };
+		4097DB3A2A561AC900CFA4C5 /* MessageEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4097DB392A561AC900CFA4C5 /* MessageEncode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,16 @@
 		4097DB212A55E76800CFA4C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4097DB232A55E76800CFA4C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4097DB242A55E76800CFA4C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4097DB2B2A55E84900CFA4C5 /* UIWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIWebViewController.h; sourceTree = "<group>"; };
+		4097DB2C2A55E84900CFA4C5 /* UIWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIWebViewController.m; sourceTree = "<group>"; };
+		4097DB2E2A55E86C00CFA4C5 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		4097DB2F2A55E86C00CFA4C5 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		4097DB322A55F78E00CFA4C5 /* MessageBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageBody.h; sourceTree = "<group>"; };
+		4097DB332A55F78E00CFA4C5 /* MessageBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageBody.m; sourceTree = "<group>"; };
+		4097DB352A55F88400CFA4C5 /* JSBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSBridge.h; sourceTree = "<group>"; };
+		4097DB362A55F88400CFA4C5 /* JSBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSBridge.m; sourceTree = "<group>"; };
+		4097DB382A561AC900CFA4C5 /* MessageEncode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageEncode.h; sourceTree = "<group>"; };
+		4097DB392A561AC900CFA4C5 /* MessageEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageEncode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +76,7 @@
 		4097DB112A55E76600CFA4C5 /* HybirdApp */ = {
 			isa = PBXGroup;
 			children = (
+				4097DB312A55F77300CFA4C5 /* JSBridge */,
 				4097DB122A55E76600CFA4C5 /* AppDelegate.h */,
 				4097DB132A55E76600CFA4C5 /* AppDelegate.m */,
 				4097DB152A55E76600CFA4C5 /* SceneDelegate.h */,
@@ -72,8 +88,25 @@
 				4097DB202A55E76800CFA4C5 /* LaunchScreen.storyboard */,
 				4097DB232A55E76800CFA4C5 /* Info.plist */,
 				4097DB242A55E76800CFA4C5 /* main.m */,
+				4097DB2B2A55E84900CFA4C5 /* UIWebViewController.h */,
+				4097DB2C2A55E84900CFA4C5 /* UIWebViewController.m */,
+				4097DB2E2A55E86C00CFA4C5 /* WKWebViewController.h */,
+				4097DB2F2A55E86C00CFA4C5 /* WKWebViewController.m */,
 			);
 			path = HybirdApp;
+			sourceTree = "<group>";
+		};
+		4097DB312A55F77300CFA4C5 /* JSBridge */ = {
+			isa = PBXGroup;
+			children = (
+				4097DB322A55F78E00CFA4C5 /* MessageBody.h */,
+				4097DB332A55F78E00CFA4C5 /* MessageBody.m */,
+				4097DB352A55F88400CFA4C5 /* JSBridge.h */,
+				4097DB362A55F88400CFA4C5 /* JSBridge.m */,
+				4097DB382A561AC900CFA4C5 /* MessageEncode.h */,
+				4097DB392A561AC900CFA4C5 /* MessageEncode.m */,
+			);
+			path = JSBridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,8 +181,13 @@
 			files = (
 				4097DB1A2A55E76600CFA4C5 /* ViewController.m in Sources */,
 				4097DB142A55E76600CFA4C5 /* AppDelegate.m in Sources */,
+				4097DB3A2A561AC900CFA4C5 /* MessageEncode.m in Sources */,
+				4097DB342A55F78E00CFA4C5 /* MessageBody.m in Sources */,
 				4097DB252A55E76800CFA4C5 /* main.m in Sources */,
+				4097DB2D2A55E84A00CFA4C5 /* UIWebViewController.m in Sources */,
 				4097DB172A55E76600CFA4C5 /* SceneDelegate.m in Sources */,
+				4097DB302A55E86C00CFA4C5 /* WKWebViewController.m in Sources */,
+				4097DB372A55F88400CFA4C5 /* JSBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +340,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HybirdApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -329,7 +367,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HybirdApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
