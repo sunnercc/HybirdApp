@@ -12,7 +12,6 @@
 
 @interface JSBridge () <WKScriptMessageHandler, WKUIDelegate>
 
-
 @property (nonatomic, weak) WKWebView *wkWebView;
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, CallbackHandler> *callbackHandlers;
@@ -33,10 +32,27 @@
 - (void)bindWithWKWebView:(WKWebView *)webView {
     self.wkWebView = webView;
     self.wkWebView.UIDelegate = self;
-//    webView.UIDelegate = self;
-//    webView.navigationDelegate = self;
     // 配置对象注入
     [self.wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"WKJSBridge"];
+    
+    
+    [self.wkWebView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id result, NSError *error) {
+        self.wkWebView.customUserAgent = [NSString stringWithFormat:@"%@ %@", result, [self userAgent]];
+    }];
+}
+
+- (NSString *)userAgent {
+    UIScreen *screen = [UIScreen mainScreen];
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion]; // 14.0 或 15.1
+    NSString *deviceType = [[UIDevice currentDevice] model]; // iPhone 或 iPad
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary]  objectForKey:@"CFBundleShortVersionString"]; // app 版本号
+    NSString *userAgent = [NSString stringWithFormat:@"WKBridge_w%.0f_h%.0f_OS%@_%@_app%@", screen.bounds.size.width,
+        screen.bounds.size.height,
+        systemVersion,
+        deviceType,
+        appVersion
+    ];
+    return userAgent;
 }
 
 
@@ -64,10 +80,14 @@
     NSString *message = [MessageEncode serializeMessageData:messageBody.toDict];
     NSString *messageCommand = [NSString stringWithFormat:@"window.bridge._recvMessage('%@')", message];
     if ([[NSThread currentThread] isMainThread]) {
-        [self.wkWebView evaluateJavaScript:messageCommand completionHandler:nil];
+        [self.wkWebView evaluateJavaScript:messageCommand completionHandler:^(id _Nullable, NSError * _Nullable error) {
+            NSLog(@"evaluteJavaScript:%@", error);
+        }];
     } else {
         dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.wkWebView evaluateJavaScript:messageCommand completionHandler:nil];
+            [self.wkWebView evaluateJavaScript:messageCommand completionHandler:^(id _Nullable, NSError * _Nullable error) {
+                NSLog(@"evaluteJavaScript:%@", error);
+            }];
         });
     }
 }

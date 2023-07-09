@@ -26,8 +26,7 @@
     [self.view addSubview:webView];
     self.webView = webView;
     
-    self.webView.inspectable = true;
-    
+    self.webView.inspectable = true;    
     
     CGRect logFrame = CGRectMake(0, self.view.bounds.size.height - 200, self.view.bounds.size.width, 200);
     UITextView *logView = [[UITextView alloc] initWithFrame:logFrame];
@@ -62,7 +61,7 @@
 }
 
 - (void)postMessage:(UIButton *)button {
-    [self.jsBridge postMessage:@"JSLog" params:@{@"params1":@"params1",@"params2":@"params2"} handler:^(NSDictionary * _Nonnull params) {
+    [self.jsBridge postMessage:@"JSLog" params:@{@"params1":@"params1\n",@"params2":@"params2"} handler:^(NSDictionary * _Nonnull params) {
         self.logView.text = [NSString stringWithFormat:@"oc->js: callback: %@", params];
     }];
 }

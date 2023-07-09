@@ -18,6 +18,7 @@
 }
 + (NSString *)transcodingJavascriptMessage:(NSString *)message
 {
+    NSLog(@"%s", message);
     message = [message stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
     message = [message stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     message = [message stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"];
